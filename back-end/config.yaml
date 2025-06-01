@@ -1,0 +1,25 @@
+# config.yaml
+application:
+  simulated_task_url: "https://news.ycombinator.com"
+  upload_directory: "./files"
+  # For simulated processing
+  processing_duration_seconds: 15
+  genai_processing_duration_seconds: 60 # Total simulated time for the LangChain task
+  processing_steps: 30
+  task_storage_type: "in_memory" # or "mongodb"
+  external_service_url: "https://news.ycombinator.com"
+  external_processing_estimated_duration_seconds: 90
+  external_processing_timeout_seconds: 240
+
+mongodb:
+  uri: "mongodb://localhost:27017"
+  database_name: "files_db"
+  collection_name: "tasks"
+
+cors:
+  allowed_origins:
+    - "http://localhost:3000"
+
+server: # Uvicorn settings, can also be set via CLI
+  host: "0.0.0.0"
+  port: 8000
